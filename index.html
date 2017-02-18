@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style2.css">
+	<title></title>
+</head>
+<body><div class="form">
+<form action="php/createDataBase.php" method="post" enctype="multipart/form-data">
+<input type="submit" value="создать базу данных test2"/>
+</form>
+<form action="php/dropDB.php" method="post" enctype="multipart/form-data">
+
+<input type="submit" value="удалить базу данных test2"/>
+<!-- имя базы данных: <input type="text" name="name" /><br /> -->
+</form>
+<form action="php/createdTable.php" method="post" enctype="multipart/form-data">
+<input type="submit" value="создать таблицу"/>
+</form>
+<form action="php/dropTable.php" method="post" enctype="multipart/form-data">
+<input type="submit" value="удалить таблицу"/>
+</form>
+<form action="php/action.php" method="post" enctype="multipart/form-data">
+<p>Создать пользователя</p>
+	Ваше имя: <input type="text" name="name" /><br />
+	Ваша фамилия: <input type="text" name="surname" /><br />
+	Ваше отчество: <input type="text" name="secondName" /><br />
+	Ваша дата рождения: <input type="date" name="date" /><br />
+	Ваша пол 
+
+	<label><input type="radio" checked ID="sex" name="sex" value="1"/> male</label> <label><input type="radio" ID="sex" name="sex" value="0"/> female</label>
+	<br>
+	<input type="submit" value="Отправить форму" />
+</form>
+
+<form action="php/insert1000.php" method="post" enctype="multipart/form-data">
+<p> Вставить 1000 пользователей в таблицу</p>
+<input type="submit" value="insert 10000" />
+
+</form>
+
+<form action="php/select.php" method="post" enctype="multipart/form-data">
+<input type="submit" value="выбрать уникальных пользователей"/>
+</form>
+
+<form action="php/clear.php" method="post" enctype="multipart/form-data">
+<input type="submit" value="Очистить таблицу"/>
+</form>
+</div>
+</body>
+</html>

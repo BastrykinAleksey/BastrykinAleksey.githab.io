@@ -1,0 +1,17 @@
+body{
+	background-color: #455272;
+	color: #29273A;
+
+	}
+
+.form{
+	width: 80%;
+	margin:0 auto;
+	text-align: center;
+		
+}
+form{
+	padding: 30px;
+	background-color: #A4ADBD;
+	border: 3px solid #29273A;
+}	
