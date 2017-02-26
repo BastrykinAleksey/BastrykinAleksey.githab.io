@@ -1,9 +1,11 @@
 
 
 <?php
+include 'function.php';
 require 'conecting.php';
 $sql  = "TRUNCATE TABLE `workers`"; ///очистка таблицы
 mysql_query($sql);
+
   $firstname = array('Алексей', 'Андрей', 'Константин', 'Евгений', 'Вася', 'Петр'); 
   $firstnameF = ['Федот','Филипп','Флавий','Федор','Филимон'];
   $lastname= array('реофанов', 'козлов', 'иванов', 'кольбич', 'кирпун', 'леонидов');
@@ -13,16 +15,10 @@ mysql_query($sql);
   $SelectDate = array('2000-02-01','2013-02-01','2017-12-01','1989-02-08','2001-12-02','2017-02-01','1000-12-01');
   $line = []; 
 
-$filepath = 'C:\xampp\htdocs\testing\php\sales.csv';
-$fo = fopen ($filepath, 'w') OR die ("Невозможно открыть $filepath");
+$filepath = 'C:\xampp\htdocs\testing\php\sales.csv';      ////путь к файлу        
+$fo = fopen ($filepath, 'w') OR die ("Невозможно открыть $filepath"); ///открытие файла
+ 
 
-function writeCSV($fo,$line)
-{
-     if (fputcsv($fo, $line) === false) ////запись в файл построчно
-    {
-        die ("Ошибка при записи в csv-файл");
-    }
-}
 
 
 for ($i=0; $i < 999900; $i++) { 
@@ -68,13 +64,11 @@ for ($i=0; $i < 100; $i++) {
    INTO TABLE workers  
    character set utf8
    FIELDS TERMINATED BY '".$delim."' 
-   
    LINES TERMINATED BY '".$lineend."'";
   if (mysql_query ($query)){
-echo "записи в таблицу добавлены";
-print "<a href=\"../index.html\"> Вернуться на главную</a> ";
-   	///header('Location: ../index.html');
-
+  	 fclose($fo);
+	 echo "записи в таблицу добавлены";
+	 print "<a href=\"../index.html\"> Вернуться на главную</a> ";
    }
    echo mysql_errno() . ": " . mysql_error() . "\n";
 
