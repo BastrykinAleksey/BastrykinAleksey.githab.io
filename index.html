@@ -32,9 +32,9 @@
 	<input type="submit" value="Отправить форму" />
 </form>
 
-<form action="php/insert1000.php" method="post" enctype="multipart/form-data">
-<p> Вставить 1000 пользователей в таблицу</p>
-<input type="submit" value="insert 10000" />
+<form action="php/insert.php" method="post" enctype="multipart/form-data">
+<p> Вставить 1000000 пользователей в таблицу</p>
+<input type="submit" value="insert 100000 users" />
 
 </form>
 
@@ -42,6 +42,12 @@
 <input type="submit" value="выбрать уникальных пользователей"/>
 </form>
 
+<form action="php/selectF.php" method="post" enctype="multipart/form-data">
+<input type="submit" value="выбрать уникальных пользователей начинающихся с 'Ф'"/>
+</form>
+<form action="php/optim.php" method="post" enctype="multipart/form-data">
+<input type="submit" value="Оптимизировать таблицу(индексация поля 'firstname')"/>
+</form>
 <form action="php/clear.php" method="post" enctype="multipart/form-data">
 <input type="submit" value="Очистить таблицу"/>
 </form>

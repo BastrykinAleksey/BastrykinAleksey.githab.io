@@ -1,16 +1,4 @@
-<?php 
-require 'conecting.php';
-   $fio = "SELECT DISTINCT firstname, lastname, secondName,sex, dateofbirth  FROM  `workers` ORDER BY firstname";
-        $sqlCount = 0;
-        $start_time = microtime(true);
-        $result = mysql_query($fio);
-        $query_time = (microtime(true)-$start_time);
-        echo "Запрос выполнялся $query_time секунд";
-function OptimizeAllTables() {
-$tables = mysql_query ('SHOW TABLES'); //get all the tables
-while ($table = mysql_fetch_array ($tables))
-mysql_query ('OPTIMIZE TABLE ' . $table[0]); //optimize them
-}
+<?php
 
 function calculate_age($birthday) {
   $birthday_timestamp = strtotime($birthday);
@@ -20,16 +8,27 @@ function calculate_age($birthday) {
   }
   return $age;
 }
-
 function sex($sex){
 if ($sex==1) return $sex = 'male';
 if ($sex==0) return $sex = 'female';
 }
 
- ///OptimizeAllTables();
+require 'conecting.php';
 
 
-$date = '1990-01-01';
+   $fio = "SELECT * FROM `workers` WHERE firstname LIKE 'Ф%' ORDER BY firstname";
+
+    $sqlCount = 0;
+    $start_time = microtime(true);
+
+   $result = mysql_query($fio);
+
+   $query_time = (microtime(true)-$start_time);
+echo "Запрос выполнялся $query_time секунд";
+
+
+
+
 print "<a href=\"../index.html\"> Вернуться на главную</a> ";
 print "<TABLE width=\"755\" border=\"1\" bordercolor=\"#000000\" cellpadding=\"0\" cellspacing=\"1\" align=\"center\">
         <tr bgcolor=\"#0089CA\" align=\"center\" class=\"pr\">
@@ -40,7 +39,8 @@ print "<TABLE width=\"755\" border=\"1\" bordercolor=\"#000000\" cellpadding=\"0
     <td width=\"50\"><font color=\"#FFFFFF\" size=\"+1\">Год рождения</font></td>
     <td width=\"50\"><font color=\"#FFFFFF\" size=\"+1\">Возраст</font></td>
     </tr>";
-    $timeStart = microtime( TRUE);
+
+
 while ($row=mysql_fetch_array($result))
 { // выводим данные
 	$sex = sex($row['sex']);
@@ -55,9 +55,7 @@ while ($row=mysql_fetch_array($result))
 
  
 }
-/////1 запросов за 0.011309 секунд.
-
-print "</table>";
+print "</table>"
 
 
 ?>
