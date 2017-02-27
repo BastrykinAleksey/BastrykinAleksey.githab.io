@@ -20,6 +20,8 @@ require 'conecting.php';
 
 $sql  = "INSERT INTO `workers` (`id`, `lastname`, `firstname`, `secondName`,`sex`, `dateofbirth`) VALUES (NULL,'{$surname}' , '{$name}', '{$secondName}','{$sex}', '{$SelectDate}')";
 
+
+
 if (mysql_query($sql))
 {
 echo "Table employees created successfully";
@@ -28,6 +30,7 @@ else
 {
 echo "Error creating table: " . mysql_error($selected);
 }
+echo "$sql";
 header('Location: ../index.html');
-exit;
+ exit;
 ?>
